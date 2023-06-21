@@ -1,0 +1,23 @@
+{
+    "recetas": [
+        {
+            "nombre": "ensalada mixta",
+            "ingredientes": [
+                "tomate",
+                "zanahoria",
+                "cebolla",
+                "lechuga"
+            ],
+            "instrucciones": "lave y pique todas las verduras (excepto la zanahoria, que tiene que rallarla) luego mezcle todo junto en un recipiente y agregue sal y aceite"
+        },
+        {
+            "nombre": "sandwich de huevo",
+            "ingredientes": [
+                "huevo",
+                "pan",
+                "queso"
+            ],
+            "instrucciones": "cocine el huevo en una sarten con aceite a alta temperatura, ponga el queso sobre el huevo mientras se cocina. Luego agregue sal y coloque dentro de un pan"
+        }
+    ]
+}
