@@ -4,12 +4,16 @@ import Admin from "./components/views/Admin"
 import Detalles from "./components/views/Detalles"
 import Error404 from "./components/views/Error404"
 import Footer from "./components/common/Footer"
+import Menu from "./components/common/Menu"
 import { Container } from "react-bootstrap"
 
 function App() {
 
   return (
     <>
+      <Container fluid="true" as="header" className="w-100">
+      <Menu></Menu>
+      </Container>
       <Container fluid="true" as="main" className="min-vh-100 m-0">
         <BrowserRouter>
           <Routes>
