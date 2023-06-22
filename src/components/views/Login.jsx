@@ -21,7 +21,7 @@ const Login = () => {
                             <Form.Control
                                 type="text"
                                 placeholder="Ingrese su usuario"
-                                {...register('usuario', { required: 'El usuario es necesario' })}
+                                {...register('usuario', { required: 'El usuario es necesario', pattern:{value: /[a-zA-Z][a-zA-Z0-9-_]{3,32}/, message:'El nombre de usuario puede tener de 3 a 32 caracteres, debe empezar con una letra, puede contener - y _'} })}
                             />
                             <Form.Text muted>
                                 {errors.usuario?.message}
