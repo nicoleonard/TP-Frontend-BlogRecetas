@@ -31,4 +31,12 @@ export const leerRecetas = async ()=>{
         console.log(error)
     }
 }
+export const agregarReceta = async (receta)=>{
+    try{
+        const respuesta = await fetch(URL_recetas,{method:"POST",headers:{"Content-Type": "application/json"},body: JSON.stringify(receta)});
+        return respuesta;
+    }catch (error){
+        console.log(error)
+    }
+}
 
