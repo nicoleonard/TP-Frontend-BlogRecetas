@@ -16,7 +16,7 @@ function App() {
         <Container fluid="true" as="header" className="w-100">
           <Menu></Menu>
         </Container>
-        <Container fluid="true" as="main" className="min-vh-100 m-0 w-100 text-center pt-2">
+        <Container fluid="true" as="main" className="min-vh-100 m-0 w-100 pt-2">
           <Routes>
             <Route exact path="/" element={<Inicio></Inicio>}></Route>
             <Route exact path="/admin" element={<Admin></Admin>}></Route>

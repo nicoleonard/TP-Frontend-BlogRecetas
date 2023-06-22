@@ -3,7 +3,7 @@ import Accordion from 'react-bootstrap/Accordion';
 const Inicio = () => {
     return (
         <>
-            <h1>Lista de recetas de cocina</h1>
+            <h1 className='text-center'>Lista de recetas de cocina</h1>
             <hr></hr>
             <Accordion defaultActiveKey="0">
                 <Accordion.Item eventKey="0">
