@@ -14,6 +14,7 @@ const Menu = () => {
                         <Nav className="me-auto">
                             <NavLink end to="/" className={'nav-item nav-link'}>Recetas</NavLink>
                             <NavLink end to="/admin" className={'nav-item nav-link'}>Admin</NavLink>
+                            <NavLink end to="/login" className={'nav-item nav-link'}>Login</NavLink>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

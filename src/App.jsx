@@ -6,6 +6,7 @@ import Error404 from "./components/views/Error404"
 import Footer from "./components/common/Footer"
 import Menu from "./components/common/Menu"
 import { Container } from "react-bootstrap"
+import Login from "./components/views/Login"
 
 function App() {
 
@@ -15,11 +16,12 @@ function App() {
         <Container fluid="true" as="header" className="w-100">
           <Menu></Menu>
         </Container>
-        <Container fluid="true" as="main" className="min-vh-100 m-0">
+        <Container fluid="true" as="main" className="min-vh-100 m-0 w-100 text-center pt-2">
           <Routes>
             <Route exact path="/" element={<Inicio></Inicio>}></Route>
             <Route exact path="/admin" element={<Admin></Admin>}></Route>
             <Route exact path="/detalles" element={<Detalles></Detalles>}></Route>
+            <Route exact path="/Login" element={<Login></Login>}></Route>
             <Route path="*" element={<Error404></Error404>}></Route>
           </Routes>
         </Container>
