@@ -14,12 +14,16 @@ const AdminReceta = ({ receta }) => {
         confirmButtonText: 'Si, borrar'
       }).then((result) => {
         if (result.isConfirmed) {
-            borrarReceta(receta.id)
-          Swal.fire(
-            'Se ha ido!',
-            'La receta se ha borrado',
-            'success'
-          )
+            borrarReceta(receta.id).then((respuesta)=>{
+                if(respuesta && respuesta.status === 200){
+                    Swal.fire(
+                        'Se ha ido!',
+                        `La receta de ${receta.nombre} se ha borrado`,
+                        'success'
+                      )
+                }
+            })
+
         }
       })
   }
