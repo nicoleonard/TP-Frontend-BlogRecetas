@@ -2,19 +2,20 @@ import { Container, Table } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { leerRecetas } from "../helpers/queries";
+import AdminReceta from "./recetas/AdminReceta";
 
 const Admin = () => {
     const [recetas, setRecetas] = useState([]);
 
-    useEffect(()=>{
-        leerRecetas().then((respuesta)=>{
-          if(respuesta){
-            setRecetas(respuesta)
-          }else{
-            Swal.fire('Oops...', 'Intente esta operacion luego', 'error')
-          }
+    useEffect(() => {
+        leerRecetas().then((respuesta) => {
+            if (respuesta) {
+                setRecetas(respuesta)
+            } else {
+                Swal.fire('Oops...', 'Intente esta operacion luego', 'error')
+            }
         })
-      },[])
+    }, [])
 
     return (
         <Container fluid="true" className="px-5">
@@ -36,8 +37,8 @@ const Admin = () => {
                 </thead>
                 <tbody>
                     {
-              recetas.map((receta)=>console.log(receta))
-            }
+                        recetas.map((receta) => <AdminReceta receta={receta} key={receta.id} setRecetas={setRecetas}></AdminReceta>)
+                    }
                 </tbody>
             </Table>
         </Container>
