@@ -18,7 +18,7 @@ const AgregarReceta = () => {
                     <Form.Label>Nombre</Form.Label>
                     <Form.Control
                         type="text"
-                        placeholder="Ej: Sanguche de milanesa"
+                        placeholder="Ej: Merengue"
                         {...register("nombreReceta", {
                             required: "El nombre de la receta es requerido", minLength: { value: 5, message: "El nombre de la receta debe tener al menos 5 caracteres" }, maxLength: { value: 100, message: "El nombre de la receta puede tener como maximo 100 caracteres" },
                         })}
@@ -31,7 +31,7 @@ const AgregarReceta = () => {
                     <Form.Label>Ingredientes</Form.Label>
                     <Form.Control
                         type="text"
-                        placeholder="Ej: Harina, huevos, manteca..."
+                        placeholder="Ej: Claras de huevo, azucar, agua..."
                         {...register("ingredientes", {
                             required: "Los ingredientes de la receta son requeridos", minLength: { value: 4, message: "La lista de ingredientes debe tener al menos 4 caracteres" }, maxLength: { value: 100, message: "La lista de ingredientes puede tener como maximo 100 caracteres" },
                         })}
