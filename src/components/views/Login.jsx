@@ -3,7 +3,7 @@ import login from "../helpers/queries"
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 
-const Login = () => {
+const Login = ({setUsuarioLogeado}) => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
 
@@ -12,6 +12,7 @@ const Login = () => {
             console.log(respuesta)
             if(respuesta){
                 sessionStorage.setItem('usuario', JSON.stringify(respuesta))
+                setUsuarioLogeado(respuesta);
             }else{
                 Swal.fire(
                     'Inicio de sesion fallido',
