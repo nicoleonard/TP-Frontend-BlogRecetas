@@ -1,9 +1,10 @@
+import { Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import {Link, NavLink } from 'react-router-dom';
 
-const Menu = () => {
+const Menu = ({usuarioLogeado, setUsuarioLogeado}) => {
     return (
         <>
             <Navbar collapseOnSelect expand="lg" className="bg-success">
@@ -13,8 +14,13 @@ const Menu = () => {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
                             <NavLink end to="/" className={'nav-item nav-link'}>Recetas</NavLink>
-                            <NavLink end to="/admin" className={'nav-item nav-link'}>Admin</NavLink>
-                            <NavLink end to="/login" className={'nav-item nav-link'}>Login</NavLink>
+                            {
+                                usuarioLogeado.usuario?
+                                <>
+                                <NavLink end to="/admin" className={'nav-item nav-link'}>Admin</NavLink>
+                                <Button className={'nav-item nav-link'} variant='primary'>Logout</Button>
+                                </>:<NavLink end to="/login" className={'nav-item nav-link'}>Login</NavLink>
+                            }
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
