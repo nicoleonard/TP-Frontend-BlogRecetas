@@ -32,7 +32,7 @@ const Login = () => {
                             <Form.Control
                                 type="password"
                                 placeholder="Contraseña"
-                                {...register('clave', { required: 'La contraseña es necesaria' })}
+                                {...register('clave', { required: 'La contraseña es necesaria', pattern:{value: /((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{8,64})/, message: 'La contraseña puede tener de 8 a 64 caracteres y contiene una mezcla de mayusculas y minusculas, un numero y un caracter especial'} })}
                             />
                             <Form.Text muted>
                                 {errors.clave?.message}
