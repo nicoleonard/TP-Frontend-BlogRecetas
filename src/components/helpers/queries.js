@@ -31,6 +31,7 @@ export const leerRecetas = async ()=>{
         console.log(error)
     }
 }
+
 export const agregarReceta = async (receta)=>{
     try{
         const respuesta = await fetch(URL_recetas,{method:"POST",headers:{"Content-Type": "application/json"},body: JSON.stringify(receta)});
@@ -39,4 +40,14 @@ export const agregarReceta = async (receta)=>{
         console.log(error)
     }
 }
+
+export const borrarReceta = async (id)=>{
+    try{
+        const respuesta = await fetch(URL_recetas+"/"+id,{method:"DELETE"});
+        return respuesta;
+    }catch (error){
+        console.log(error)
+    }
+}
+
 
