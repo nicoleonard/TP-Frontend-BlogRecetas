@@ -24,11 +24,11 @@
     "usuarios": [
         {
             "usuario": "admin",
-            "clave": "admin"
+            "clave": "adminAA1."
         },
         {
             "usuario": "usuario",
-            "clave": "usuario"
+            "clave": "usuarioAA1."
         }
     ]
 }

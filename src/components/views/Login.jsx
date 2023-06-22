@@ -5,10 +5,10 @@ import { useForm } from "react-hook-form";
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
-    login();
+
 
     const onSubmit = (usuario) => {
-        console.log(usuario)
+        login(usuario);
     }
     return (
         <Container>
