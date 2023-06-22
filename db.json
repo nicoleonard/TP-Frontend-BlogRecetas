@@ -19,5 +19,16 @@
             ],
             "instrucciones": "cocine el huevo en una sarten con aceite a alta temperatura, ponga el queso sobre el huevo mientras se cocina. Luego agregue sal y coloque dentro de un pan"
         }
+    ],
+
+    "usuarios": [
+        {
+            "usuario": "admin",
+            "clave": "admin"
+        },
+        {
+            "usuario": "usuario",
+            "clave": "usuario"
+        }
     ]
 }
