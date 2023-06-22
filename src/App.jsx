@@ -10,7 +10,7 @@ import Login from "./components/views/Login"
 import { useState } from "react"
 
 function App() {
-const [usuarioLogeado, setUsuarioLogeado] = useState({});
+const [usuarioLogeado, setUsuarioLogeado] = useState(JSON.parse(sessionStorage.getItem('usuario')) || {});
   return (
     <>
       <BrowserRouter>

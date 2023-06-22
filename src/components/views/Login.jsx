@@ -2,9 +2,12 @@ import { Form, Button, Container, Card } from "react-bootstrap";
 import login from "../helpers/queries"
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router";
+
 
 const Login = ({setUsuarioLogeado}) => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const navegacion = useNavigate(); 
 
 
     const onSubmit = (usuario) => {
@@ -13,6 +16,7 @@ const Login = ({setUsuarioLogeado}) => {
             if(respuesta){
                 sessionStorage.setItem('usuario', JSON.stringify(respuesta))
                 setUsuarioLogeado(respuesta);
+                navegacion("/admin")
             }else{
                 Swal.fire(
                     'Inicio de sesion fallido',

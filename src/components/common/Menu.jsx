@@ -2,13 +2,15 @@ import { Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import {Link, NavLink } from 'react-router-dom';
+import {Link, NavLink, useNavigate } from 'react-router-dom';
 
 const Menu = ({usuarioLogeado, setUsuarioLogeado}) => {
+    const navegacion = useNavigate()
 
     const logout = () => {
         sessionStorage.removeItem('usuario')
         setUsuarioLogeado({})
+        navegacion("/")
     }
     return (
         <>
