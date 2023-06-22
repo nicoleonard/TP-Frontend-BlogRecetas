@@ -11,20 +11,20 @@ function App() {
 
   return (
     <>
-        <BrowserRouter>
-      <Container fluid="true" as="header" className="w-100">
-      <Menu></Menu>
-      </Container>
-      <Container fluid="true" as="main" className="min-vh-100 m-0">
+      <BrowserRouter>
+        <Container fluid="true" as="header" className="w-100">
+          <Menu></Menu>
+        </Container>
+        <Container fluid="true" as="main" className="min-vh-100 m-0">
           <Routes>
             <Route exact path="/" element={<Inicio></Inicio>}></Route>
             <Route exact path="/admin" element={<Admin></Admin>}></Route>
             <Route exact path="/detalles" element={<Detalles></Detalles>}></Route>
             <Route path="*" element={<Error404></Error404>}></Route>
           </Routes>
-      </Container>
-      <Footer></Footer>
-        </BrowserRouter>
+        </Container>
+        <Footer></Footer>
+      </BrowserRouter>
     </>
 
 
