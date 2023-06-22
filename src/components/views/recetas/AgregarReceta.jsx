@@ -1,11 +1,12 @@
 import { Form, Button, Container } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { agregarReceta } from "../../helpers/queries";
 
 const AgregarReceta = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     const onSubmit = (nuevaReceta) => {
-        console.log(nuevaReceta);
+        agregarReceta(nuevaReceta);
 
     };
 
@@ -19,7 +20,7 @@ const AgregarReceta = () => {
                     <Form.Control
                         type="text"
                         placeholder="Ej: Merengue"
-                        {...register("nombreReceta", {
+                        {...register("nombre", {
                             required: "El nombre de la receta es requerido", minLength: { value: 5, message: "El nombre de la receta debe tener al menos 5 caracteres" }, maxLength: { value: 100, message: "El nombre de la receta puede tener como maximo 100 caracteres" },
                         })}
                     />
