@@ -8,7 +8,7 @@ const AgregarReceta = () => {
     const onSubmit = (nuevaReceta) => {
         agregarReceta(nuevaReceta).then((respuesta)=>{
             if(respuesta && respuesta.status === 201){
-              Swal.fire('Reseta añadida', `La receta de${nuevaReceta.nombre} fue agregada al Libro de recetas`, 'success');
+              Swal.fire('Receta añadida', `La receta de${nuevaReceta.nombre} fue agregada al Libro de recetas`, 'success');
               reset();
             }else{
               Swal.fire('Oops... algo salio mal', `La receta ${nuevaReceta.nombre} no pudo ser agregada :( quizás luego`, 'error');

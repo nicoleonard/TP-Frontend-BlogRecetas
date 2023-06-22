@@ -1,8 +1,8 @@
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { borrarReceta } from "../../helpers/queries";
+import { borrarReceta, leerRecetas } from "../../helpers/queries";
 
-const AdminReceta = ({ receta }) => {
+const AdminReceta = ({ receta, setRecetas }) => {
   const eliminarReceta = () =>{
     Swal.fire({
         title: 'Esta a punto de borrar una receta, esta seguro?',
@@ -20,6 +20,17 @@ const AdminReceta = ({ receta }) => {
                         'Se ha ido!',
                         `La receta de ${receta.nombre} se ha borrado`,
                         'success'
+                      )
+                      leerRecetas().then((respuesta) => {
+                        if (respuesta) {
+                          setRecetas(respuesta);
+                        }
+                      });
+                }else{
+                    Swal.fire(
+                        'Oh no! Algo salio mal...',
+                        `La receta de ${receta.nombre} no se ha borrado`,
+                        'error'
                       )
                 }
             })
