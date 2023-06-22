@@ -9,11 +9,9 @@ const login = async (usuario) => {
         console.log(solicitudLogin)
         if(solicitudLogin){
             if(solicitudLogin.clave === usuario.clave){
-                console.log("bien logeao")
                 return solicitudLogin
             }
         }else{
-            console.log("mal logeao")
             return null
         }
 
