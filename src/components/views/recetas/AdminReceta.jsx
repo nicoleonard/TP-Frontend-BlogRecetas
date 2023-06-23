@@ -44,9 +44,9 @@ const AdminReceta = ({ receta, setRecetas }) => {
       <td>{receta.nombre}</td>
       <td>{receta.ingredientes}</td>
       <td>{receta.instrucciones}</td>
-      <td>
-        <Link className="btn btn-warning" to={'/admin/editar-receta/'+receta.id}>Editar</Link>
-        <Button variant="danger" onClick={eliminarReceta}>
+      <td className="d-flex flex-columns flex-wrap justify-content-center">
+        <Link className="btn btn-warning w-75" to={'/admin/editar-receta/'+receta.id}>Editar</Link>
+        <Button className="w-75" variant="danger" onClick={eliminarReceta}>
           Borrar
         </Button>
       </td>
