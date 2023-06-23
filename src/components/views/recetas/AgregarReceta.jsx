@@ -53,7 +53,7 @@ const AgregarReceta = () => {
                         type="text"
                         placeholder="Ej: Se baten las claras de huevo a punto de nieve..."
                         {...register("instrucciones", {
-                            required: "Las instrucciones son requeridas", minLength: { value: 12, message: "La lista de instrucciones debe tener al menos 12 caracteres" }, maxLength: { value: 100, message: "La lista de instrucciones puede tener como maximo 100 caracteres" },
+                            required: "Las instrucciones son requeridas", minLength: { value: 12, message: "La lista de instrucciones debe tener al menos 12 caracteres" }, maxLength: { value: 200, message: "La lista de instrucciones puede tener como maximo 200 caracteres" },
                         })}
                     />
                     <Form.Text className="text-danger">

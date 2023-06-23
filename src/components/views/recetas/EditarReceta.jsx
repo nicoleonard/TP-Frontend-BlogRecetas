@@ -6,11 +6,16 @@ import { leerReceta } from "../../helpers/queries";
 
 
 const EditarReceta = () => {
-    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm();
     const {id} = useParams();
 
     useEffect(()=>{
-        leerReceta(id)
+        leerReceta(id).then((respuesta)=>{
+            console.log(respuesta)
+            setValue('nombre',respuesta.nombre)
+            setValue('ingredientes',respuesta.ingredientes)
+            setValue('instrucciones',respuesta.instrucciones)
+        })
     },[])
 
     const onSubmit = (recetaEditada) => {
@@ -28,12 +33,12 @@ const EditarReceta = () => {
                     <Form.Control
                         type="text"
                         placeholder="Ej: Merengue"
-                        {...register("nombreReceta", {
+                        {...register("nombre", {
                             required: "El nombre de la receta es requerido", minLength: { value: 5, message: "El nombre de la receta debe tener al menos 5 caracteres" }, maxLength: { value: 100, message: "El nombre de la receta puede tener como maximo 100 caracteres" },
                         })}
                     />
                     <Form.Text className="text-danger">
-                        {errors.nombreReceta?.message}
+                        {errors.nombre?.message}
                     </Form.Text>
                 </Form.Group>
                 <Form.Group className="mb-3">
@@ -54,7 +59,7 @@ const EditarReceta = () => {
                         type="text"
                         placeholder="Ej: Se baten las claras de huevo a punto de nieve..."
                         {...register("instrucciones", {
-                            required: "Las instrucciones son requeridas", minLength: { value: 12, message: "La lista de instrucciones debe tener al menos 12 caracteres" }, maxLength: { value: 100, message: "La lista de instrucciones puede tener como maximo 100 caracteres" },
+                            required: "Las instrucciones son requeridas", minLength: { value: 12, message: "La lista de instrucciones debe tener al menos 12 caracteres" }, maxLength: { value: 200, message: "La lista de instrucciones puede tener como maximo 200 caracteres" },
                         })}
                     />
                     <Form.Text className="text-danger">

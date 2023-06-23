@@ -43,7 +43,7 @@ const Login = ({setUsuarioLogeado}) => {
                                 {errors.usuario?.message}
                             </Form.Text>
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Group className="mb-3">
                             <Form.Label>Contraseña</Form.Label>
                             <Form.Control
                                 type="password"
