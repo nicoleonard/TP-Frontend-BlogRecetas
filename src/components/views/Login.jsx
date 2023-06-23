@@ -12,10 +12,13 @@ const Login = ({setUsuarioLogeado}) => {
 
     const onSubmit = (usuario) => {
         login(usuario).then((respuesta)=>{
-            console.log(respuesta)
             if(respuesta){
                 sessionStorage.setItem('usuario', JSON.stringify(respuesta))
                 setUsuarioLogeado(respuesta);
+                Swal.fire(
+                    'Inicio de sesion exitoso',"",
+                    'success'
+                )
                 navegacion("/admin")
             }else{
                 Swal.fire(

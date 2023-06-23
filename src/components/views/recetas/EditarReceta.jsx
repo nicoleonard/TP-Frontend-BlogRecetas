@@ -11,7 +11,6 @@ const EditarReceta = () => {
 
     useEffect(()=>{
         leerReceta(id).then((respuesta)=>{
-            console.log(respuesta)
             setValue('nombre',respuesta.nombre)
             setValue('ingredientes',respuesta.ingredientes)
             setValue('instrucciones',respuesta.instrucciones)

@@ -18,7 +18,6 @@ const ListaReceta = ({ receta }) => {
                     <p>{receta.ingredientes}</p>
                 </Card.Footer>
             </Card>
-            {console.log(receta.nombre)}
         </>
     )
 

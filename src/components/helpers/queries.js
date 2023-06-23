@@ -7,7 +7,6 @@ export const login = async (usuario) => {
         const listaUsuarios = await respuesta.json()
 
         const solicitudLogin = listaUsuarios.find((usuarioRegistrado)=>usuarioRegistrado.usuario === usuario.usuario)
-        console.log(solicitudLogin)
         if(solicitudLogin){
             if(solicitudLogin.clave === usuario.clave){
                 return solicitudLogin
