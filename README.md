@@ -12,6 +12,12 @@ las recetas. Además se implementaran rutas protegidas para el acceso a las dire
 ## Como probar el proyecto:
 Debe tener instalado en su PC json-server y ejecutar el siguiente comando:
 - json-server --watch db.json --port 3004
+- Informacion de login:
+    usuario: admin
+    clave: adminAA1.
+
+    usuario: usuario
+    clave: usuarioAA1.
 
 ### De este repositorio se evaluan:
 
