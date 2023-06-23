@@ -32,6 +32,16 @@ export const leerRecetas = async ()=>{
     }
 }
 
+export const leerReceta = async (id)=>{
+    try{
+        const respuesta = await fetch(URL_recetas+"/"+id);
+        const receta = await respuesta.json();
+        return receta;
+    }catch (error){
+        console.log(error)
+    }
+}
+
 export const agregarReceta = async (receta)=>{
     try{
         const respuesta = await fetch(URL_recetas,{method:"POST",headers:{"Content-Type": "application/json"},body: JSON.stringify(receta)});
