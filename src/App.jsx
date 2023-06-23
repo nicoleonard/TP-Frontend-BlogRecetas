@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Inicio from "./components/views/Inicio"
-import Detalles from "./components/views/Detalles"
 import Error404 from "./components/views/Error404"
 import Footer from "./components/common/Footer"
 import Menu from "./components/common/Menu"
@@ -22,7 +21,6 @@ const [usuarioLogeado, setUsuarioLogeado] = useState(JSON.parse(sessionStorage.g
           <Routes>
             <Route exact path="/" element={<Inicio></Inicio>}></Route>
             <Route exact path="/admin/*" element={<RutasProtegidas><RutasAdmin></RutasAdmin></RutasProtegidas>}></Route>
-            <Route exact path="/detalles" element={<Detalles></Detalles>}></Route>
             <Route exact path="/Login" element={<Login setUsuarioLogeado={setUsuarioLogeado}></Login>}></Route>
             <Route path="*" element={<Error404></Error404>}></Route>
           </Routes>
