@@ -22,11 +22,13 @@ const Menu = ({usuarioLogeado, setUsuarioLogeado}) => {
                         <Nav className="me-auto">
                             <NavLink end to="/" className={'nav-item nav-link'}>Recetas</NavLink>
                             {
-                                usuarioLogeado.usuario?
+                                (usuarioLogeado.usuario && usuarioLogeado.usuario==="admin")?
                                 <>
                                 <NavLink end to="/admin" className={'nav-item nav-link'}>Admin</NavLink>
                                 <Button className={'nav-item nav-link'} variant='primary' onClick={logout}>Logout</Button>
-                                </>:<NavLink end to="/login" className={'nav-item nav-link'}>Login</NavLink>
+                                </>:
+                                (usuarioLogeado.usuario && usuarioLogeado.usuario !=="admin")?
+                                <Button className={'nav-item nav-link'} variant='primary' onClick={logout}>Logout</Button>:<NavLink end to="/login" className={'nav-item nav-link'}>Login</NavLink>
                             }
                         </Nav>
                     </Navbar.Collapse>

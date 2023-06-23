@@ -16,10 +16,15 @@ const Login = ({setUsuarioLogeado}) => {
                 sessionStorage.setItem('usuario', JSON.stringify(respuesta))
                 setUsuarioLogeado(respuesta);
                 Swal.fire(
-                    'Inicio de sesion exitoso',"",
+                    'Inicio de sesion exitoso',`Bienvenido, ${usuario.usuario}`,
                     'success'
                 )
-                navegacion("/admin")
+                if(usuario.usuario ==="admin"){
+                    navegacion("/admin")
+                }else{
+                    navegacion("/")
+                }
+
             }else{
                 Swal.fire(
                     'Inicio de sesion fallido',

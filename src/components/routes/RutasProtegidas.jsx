@@ -3,7 +3,7 @@ import {Navigate} from "react-router-dom"
 const RutasProtegidas = ({children}) => {
     const usuarioLogeado = JSON.parse(sessionStorage.getItem('usuario')) || null
 
-    if(!usuarioLogeado){
+    if(!usuarioLogeado || usuarioLogeado.usuario !=="admin"){
         return <Navigate to={'/login'}></Navigate> 
     }else{
         return children
