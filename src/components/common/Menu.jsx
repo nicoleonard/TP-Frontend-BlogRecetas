@@ -16,7 +16,7 @@ const Menu = ({usuarioLogeado, setUsuarioLogeado}) => {
         <>
             <Navbar collapseOnSelect expand="lg" className="bg-success">
                 <Container>
-                    <Navbar.Brand as={Link} to='/'> icono </Navbar.Brand>
+                    <Navbar.Brand as={Link} to='/'> <i className="bi bi-clipboard2-heart-fill"></i> </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
