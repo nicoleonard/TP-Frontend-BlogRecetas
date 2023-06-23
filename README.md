@@ -7,7 +7,7 @@ El alcance de este proyecto se extiende a realizar todos los pasos del CRUD usan
 administrador puede agregar, editar y borrar recetas, mientras que los usuarios visitantes solo podrán ver
 las recetas. Además se implementaran rutas protegidas para el acceso a las direcciones de administracion.
 
-[Requerimientos](https://docs.google.com/document/d/1yFK09NIwbUug5p0M_q1ESPXH4xaCS9sNqzYEOehxoJc/view)
+[Requerimientos - Ejercicio 14](https://docs.google.com/document/d/1yFK09NIwbUug5p0M_q1ESPXH4xaCS9sNqzYEOehxoJc/view)
 
 ## Como probar el proyecto:
 Debe tener instalado en su PC json-server y ejecutar el siguiente comando:
