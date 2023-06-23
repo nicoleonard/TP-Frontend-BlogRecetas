@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Form, Button, Container } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router";
-import { leerReceta } from "../../helpers/queries";
+import { editarReceta, leerReceta } from "../../helpers/queries";
 
 
 const EditarReceta = () => {
@@ -20,6 +20,14 @@ const EditarReceta = () => {
 
     const onSubmit = (recetaEditada) => {
         console.log(recetaEditada);
+        editarReceta(recetaEditada,id).then((respuesta)=>{
+            if(respuesta && respuesta.status === 200){
+              Swal.fire('Receta editada', `La receta de ${recetaEditada.nombre} fue modificada en el Libro de recetas`, 'success');
+              reset();
+            }else{
+              Swal.fire('Oops... algo salio mal', `La receta ${recetaEditada.nombre} no se modificó :( quizás luego`, 'error');
+            }
+          });
 
     };
 
