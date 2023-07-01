@@ -22,7 +22,7 @@ const [usuarioLogeado, setUsuarioLogeado] = useState(JSON.parse(sessionStorage.g
             <Route exact path="/" element={<Inicio></Inicio>}></Route>
             <Route exact path="/admin/*" element={<RutasProtegidas><RutasAdmin></RutasAdmin></RutasProtegidas>}></Route>
             <Route exact path="/Login" element={<Login setUsuarioLogeado={setUsuarioLogeado}></Login>}></Route>
-            <Route path="*" element={<Error404></Error404>}></Route>
+            <Route path="/*" element={<Error404></Error404>}></Route>
           </Routes>
         </Container>
         <Footer></Footer>
