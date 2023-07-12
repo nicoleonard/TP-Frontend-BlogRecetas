@@ -37,15 +37,17 @@ const Login = ({ setUsuarioLogeado }) => {
             })
 
         } else {
+
             login(usuario).then((respuesta) => {
+
                 if (respuesta) {
                     sessionStorage.setItem('usuario', JSON.stringify(respuesta))
                     setUsuarioLogeado(respuesta);
                     Swal.fire(
-                        'Inicio de sesion exitoso', `Bienvenido, ${usuario.usuario}`,
+                        'Inicio de sesion exitoso', `Bienvenido, ${respuesta.usuario}`,
                         'success'
                     )
-                    if (usuario.tipo === "admin") {
+                    if (respuesta.tipo === "admin") {
                         navegacion("/admin")
                     } else {
                         navegacion("/")
