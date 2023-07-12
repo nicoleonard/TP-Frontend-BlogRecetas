@@ -21,8 +21,8 @@ El proyecto esta configurado para conectarse a la direccion local por defecto de
     usuario: admin
     clave: adminAA1.
 
-    usuario: usuario
-    clave: usuarioAA1.
+    usuario: usuario1
+    clave: usuario1AA1.
 
 ### De este repositorio se evaluan:
 

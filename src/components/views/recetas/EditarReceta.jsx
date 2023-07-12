@@ -7,26 +7,26 @@ import { editarReceta, leerReceta } from "../../helpers/queries";
 
 const EditarReceta = () => {
     const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm();
-    const {id} = useParams();
+    const { id } = useParams();
 
-    useEffect(()=>{
-        leerReceta(id).then((respuesta)=>{
-            setValue('nombre',respuesta.nombre)
-            setValue('ingredientes',respuesta.ingredientes)
-            setValue('instrucciones',respuesta.instrucciones)
+    useEffect(() => {
+        leerReceta(id).then((respuesta) => {
+            setValue('nombre', respuesta.nombre)
+            setValue('ingredientes', respuesta.ingredientes)
+            setValue('instrucciones', respuesta.instrucciones)
         })
-    },[])
+    }, [])
 
     const onSubmit = (recetaEditada) => {
         console.log(recetaEditada);
-        editarReceta(recetaEditada,id).then((respuesta)=>{
-            if(respuesta && respuesta.status === 200){
-              Swal.fire('Receta editada', `La receta de ${recetaEditada.nombre} fue modificada en el Libro de recetas`, 'success');
-              reset();
-            }else{
-              Swal.fire('Oops... algo salio mal', `La receta ${recetaEditada.nombre} no se modificó :( quizás luego`, 'error');
+        editarReceta(recetaEditada, id).then((respuesta) => {
+            if (respuesta && respuesta.status === 200) {
+                Swal.fire('Receta editada', `La receta de ${recetaEditada.nombre} fue modificada en el Libro de recetas`, 'success');
+                reset();
+            } else {
+                Swal.fire('Oops... algo salio mal', `La receta ${recetaEditada.nombre} no se modificó :( quizás luego`, 'error');
             }
-          });
+        });
 
     };
 
@@ -53,7 +53,8 @@ const EditarReceta = () => {
                     <Form.Control
                         type="text"
                         placeholder="Ej: Claras de huevo, azucar, agua..."
-                        {...register("ingredientes", { required: "Los ingredientes de la receta son requeridos", pattern:{value: /^[A-Za-z\s]+(?:\s*,\s*[A-Za-z]+)*$/g, message:'La lista de ingredientes debe ser palabras separadas por ","'}, minLength: { value: 4, message: "La lista de ingredientes debe tener al menos 4 caracteres" }, maxLength: { value: 100, message: "La lista de ingredientes puede tener como maximo 100 caracteres" }
+                        {...register("ingredientes", {
+                            required: "Los ingredientes de la receta son requeridos", pattern: { value: /^[A-Za-z\s]+(?:\s*,\s*[A-Za-z]+)*$/g, message: 'La lista de ingredientes debe ser palabras separadas por ","' }, minLength: { value: 4, message: "La lista de ingredientes debe tener al menos 4 caracteres" }, maxLength: { value: 100, message: "La lista de ingredientes puede tener como maximo 100 caracteres" }
                         })}
                     />
                     <Form.Text className="text-danger">

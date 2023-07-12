@@ -6,14 +6,14 @@ const AgregarReceta = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     const onSubmit = (nuevaReceta) => {
-        agregarReceta(nuevaReceta).then((respuesta)=>{
-            if(respuesta && respuesta.status === 201){
-              Swal.fire('Receta añadida', `La receta de${nuevaReceta.nombre} fue agregada al Libro de recetas`, 'success');
-              reset();
-            }else{
-              Swal.fire('Oops... algo salio mal', `La receta ${nuevaReceta.nombre} no pudo ser agregada :( quizás luego`, 'error');
+        agregarReceta(nuevaReceta).then((respuesta) => {
+            if (respuesta && respuesta.status === 201) {
+                Swal.fire('Receta añadida', `La receta de${nuevaReceta.nombre} fue agregada al Libro de recetas`, 'success');
+                reset();
+            } else {
+                Swal.fire('Oops... algo salio mal', `La receta ${nuevaReceta.nombre} no pudo ser agregada :( quizás luego`, 'error');
             }
-          });
+        });
 
     };
 
@@ -40,7 +40,8 @@ const AgregarReceta = () => {
                     <Form.Control
                         type="text"
                         placeholder="Ej: Claras de huevo, azucar, agua..."
-                        {...register("ingredientes", { required: "Los ingredientes de la receta son requeridos", pattern:{value: /^[A-Za-z\s]+(?:\s*,\s*[A-Za-z]+)*$/g, message:'La lista de ingredientes debe ser palabras separadas por ","'}, minLength: { value: 4, message: "La lista de ingredientes debe tener al menos 4 caracteres" }, maxLength: { value: 100, message: "La lista de ingredientes puede tener como maximo 100 caracteres" }
+                        {...register("ingredientes", {
+                            required: "Los ingredientes de la receta son requeridos", pattern: { value: /^[A-Za-z\s]+(?:\s*,\s*[A-Za-z]+)*$/g, message: 'La lista de ingredientes debe ser palabras separadas por ","' }, minLength: { value: 4, message: "La lista de ingredientes debe tener al menos 4 caracteres" }, maxLength: { value: 100, message: "La lista de ingredientes puede tener como maximo 100 caracteres" }
                         })}
                     />
                     <Form.Text className="text-danger">

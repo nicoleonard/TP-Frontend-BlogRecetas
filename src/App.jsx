@@ -11,7 +11,7 @@ import RutasAdmin from "./components/routes/RutasAdmin"
 import Registro from "./components/views/Registro"
 
 function App() {
-const [usuarioLogeado, setUsuarioLogeado] = useState(JSON.parse(sessionStorage.getItem('usuario')) || {});
+  const [usuarioLogeado, setUsuarioLogeado] = useState(JSON.parse(sessionStorage.getItem('usuario')) || {});
   return (
     <>
       <BrowserRouter>
