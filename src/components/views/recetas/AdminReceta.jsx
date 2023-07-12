@@ -14,7 +14,7 @@ const AdminReceta = ({ receta, setRecetas }) => {
         confirmButtonText: 'Si, borrar'
       }).then((result) => {
         if (result.isConfirmed) {
-            borrarReceta(receta.id).then((respuesta)=>{
+            borrarReceta(receta._id).then((respuesta)=>{
                 if(respuesta && respuesta.status === 200){
                     Swal.fire(
                         'Se ha ido!',
@@ -40,12 +40,12 @@ const AdminReceta = ({ receta, setRecetas }) => {
   }
   return (
     <tr>
-      <td>{receta.id}</td>
+      <td>{receta._id}</td>
       <td>{receta.nombre}</td>
       <td>{receta.ingredientes}</td>
       <td>{receta.instrucciones}</td>
       <td className="d-flex flex-columns flex-wrap justify-content-center">
-        <Link className="btn btn-warning w-75" to={'/admin/editar-receta/'+receta.id}>Editar</Link>
+        <Link className="btn btn-warning w-75" to={'/admin/editar-receta/'+receta._id}>Editar</Link>
         <Button className="w-75" variant="danger" onClick={eliminarReceta}>
           Borrar
         </Button>
