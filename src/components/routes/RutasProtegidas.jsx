@@ -1,13 +1,18 @@
-import {Navigate} from "react-router-dom"
+import { Navigate } from "react-router-dom";
 
 const RutasProtegidas = ({children}) => {
-    const usuarioLogeado = JSON.parse(sessionStorage.getItem('usuario')) || null
+   const usuarioLogueado = JSON.parse(sessionStorage.getItem('usuario')) || null;
+   //voy a preguntar si el usuarioLogueado esta vacio
+   if(!usuarioLogueado){
 
-    if(!usuarioLogeado || usuarioLogeado.usuario !=="admin"){
-        return <Navigate to={'/login'}></Navigate> 
-    }else{
-        return children
+    return <Navigate to={'/login'}></Navigate>
+   }else{
+    //si estoy logueado
+    if(usuarioLogueado.tipo !== "admin"){
+        return <Navigate to={'/'}></Navigate>
     }
+    return children;
+   }
 };
 
 export default RutasProtegidas;

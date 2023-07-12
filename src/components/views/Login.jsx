@@ -3,36 +3,65 @@ import {login} from "../helpers/queries"
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
+import { logout } from "../helpers/queries";
 
 
 const Login = ({setUsuarioLogeado}) => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const navegacion = useNavigate(); 
 
+    const usuarioLogueado = JSON.parse(sessionStorage.getItem('usuario')) || null;
+
 
     const onSubmit = (usuario) => {
-        login(usuario).then((respuesta)=>{
-            if(respuesta){
-                sessionStorage.setItem('usuario', JSON.stringify(respuesta))
-                setUsuarioLogeado(respuesta);
-                Swal.fire(
-                    'Inicio de sesion exitoso',`Bienvenido, ${usuario.usuario}`,
-                    'success'
-                )
-                if(usuario.usuario ==="admin"){
-                    navegacion("/admin")
-                }else{
-                    navegacion("/")
-                }
 
-            }else{
-                Swal.fire(
-                    'Inicio de sesion fallido',
-                    'El usuario o clave ingresados son incorrectos',
-                    'error'
-                )
-            }
-        });
+        if(usuarioLogueado){
+            Swal.fire({
+                title: 'Hay una sesion activa',
+                text: `Está logeado como ${usuario.usuario}. Desea cerrar sesion?`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#117700',
+                cancelButtonColor: '#ff2255',
+                confirmButtonText: 'Si, cerrar sesion.'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                    logout()
+                    navegacion("/")
+                    Swal.fire(
+                    'Sesion finalizada',
+                    'Tu sesion se ha cerrado con exito.',
+                    'success'
+                  )
+                }
+              })
+            
+        }else{
+            login(usuario).then((respuesta)=>{
+                if(respuesta){
+                    sessionStorage.setItem('usuario', JSON.stringify(respuesta))
+                    setUsuarioLogeado(respuesta);
+                    Swal.fire(
+                        'Inicio de sesion exitoso',`Bienvenido, ${usuario.usuario}`,
+                        'success'
+                    )
+                    if(usuario.tipo === "admin"){
+                        navegacion("/admin")
+                    }else{
+                        navegacion("/")
+                    }
+    
+                }else{
+                    Swal.fire(
+                        'Inicio de sesion fallido',
+                        'El usuario o clave ingresados son incorrectos',
+                        'error'
+                    )
+                }
+            });
+        }
+
+
     }
     return (
         <Container>

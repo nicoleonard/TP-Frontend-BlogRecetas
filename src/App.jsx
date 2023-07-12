@@ -8,6 +8,7 @@ import Login from "./components/views/Login"
 import { useState } from "react"
 import RutasProtegidas from "./components/routes/RutasProtegidas"
 import RutasAdmin from "./components/routes/RutasAdmin"
+import Registro from "./components/views/Registro"
 
 function App() {
 const [usuarioLogeado, setUsuarioLogeado] = useState(JSON.parse(sessionStorage.getItem('usuario')) || {});
@@ -20,8 +21,9 @@ const [usuarioLogeado, setUsuarioLogeado] = useState(JSON.parse(sessionStorage.g
         <Container fluid="true" as="main" className="min-vh-100 m-0 w-100 pt-2">
           <Routes>
             <Route exact path="/" element={<Inicio></Inicio>}></Route>
+            <Route exact path="/login" element={<Login setUsuarioLogeado={setUsuarioLogeado}></Login>}></Route>
+            <Route exact path="/registro" element={<Registro></Registro>}></Route>
             <Route exact path="/admin/*" element={<RutasProtegidas><RutasAdmin></RutasAdmin></RutasProtegidas>}></Route>
-            <Route exact path="/Login" element={<Login setUsuarioLogeado={setUsuarioLogeado}></Login>}></Route>
             <Route path="/*" element={<Error404></Error404>}></Route>
           </Routes>
         </Container>
