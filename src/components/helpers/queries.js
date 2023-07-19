@@ -34,10 +34,20 @@ export const leerUsuarios = async ()=>{
         console.log(error)
     }
 }
+
 export const agregarUsuario = async (usuario)=>{
     try{
         usuario.tipo = "usuario"
         const respuesta = await fetch(URL_usuarios,{method:"POST",headers:{"Content-Type": "application/json"},body: JSON.stringify(usuario)});
+        return respuesta;
+    }catch (error){
+        console.log(error)
+    }
+}
+
+export const borrarUsuario = async (id)=>{
+    try{
+        const respuesta = await fetch(URL_usuarios+"/"+id,{method:"DELETE"});
         return respuesta;
     }catch (error){
         console.log(error)
