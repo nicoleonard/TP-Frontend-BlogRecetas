@@ -7,7 +7,8 @@ import { Container } from "react-bootstrap"
 import Login from "./components/views/Login"
 import { useState } from "react"
 import RutasProtegidas from "./components/routes/RutasProtegidas"
-import RutasAdmin from "./components/routes/RutasAdmin"
+import RutasAdminRecetas from "./components/routes/RutasAdminRecetas"
+import RutasAdminUsuarios from "./components/routes/RutasAdminUsuarios"
 import Registro from "./components/views/Registro"
 
 function App() {
@@ -23,7 +24,8 @@ const [usuarioLogeado, setUsuarioLogeado] = useState(JSON.parse(sessionStorage.g
             <Route exact path="/" element={<Inicio></Inicio>}></Route>
             <Route exact path="/login" element={<Login setUsuarioLogeado={setUsuarioLogeado}></Login>}></Route>
             <Route exact path="/registro" element={<Registro></Registro>}></Route>
-            <Route exact path="/admin/*" element={<RutasProtegidas><RutasAdmin></RutasAdmin></RutasProtegidas>}></Route>
+            <Route exact path="/admin-recetas/*" element={<RutasProtegidas><RutasAdminRecetas></RutasAdminRecetas></RutasProtegidas>}></Route>
+            <Route exact path="/admin-usuarios/*" element={<RutasProtegidas><RutasAdminUsuarios></RutasAdminUsuarios></RutasProtegidas>}></Route>
             <Route path="/*" element={<Error404></Error404>}></Route>
           </Routes>
         </Container>

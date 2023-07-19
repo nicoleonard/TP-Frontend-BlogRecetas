@@ -24,7 +24,8 @@ const Menu = ({usuarioLogeado, setUsuarioLogeado}) => {
                             {
                                 (usuarioLogeado.usuario && usuarioLogeado.tipo==="admin")?
                                 <>
-                                <NavLink end to="/admin" className={'nav-item nav-link'}>Admin</NavLink>
+                                <NavLink end to="/admin-recetas" className={'nav-item nav-link'}>Admin Recetas</NavLink>
+                                <NavLink end to="/admin-usuarios" className={'nav-item nav-link'}>Admin Usuarios</NavLink>
                                 <Button className={'nav-item nav-link'} variant='primary' onClick={logout}>Logout</Button>
                                 </>:
                                 (usuarioLogeado.usuario && usuarioLogeado.tipo ==="usuario")?
