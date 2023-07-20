@@ -2,9 +2,9 @@ import { Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import {Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 
-const Menu = ({usuarioLogeado, setUsuarioLogeado}) => {
+const Menu = ({ usuarioLogeado, setUsuarioLogeado }) => {
     const navegacion = useNavigate()
 
     const logout = () => {
@@ -32,7 +32,7 @@ const Menu = ({usuarioLogeado, setUsuarioLogeado}) => {
                                 <Button className={'nav-item nav-link'} variant='primary' onClick={logout}>Logout</Button>:<NavLink end to="/login" className={'nav-item nav-link'}>Login</NavLink>
                             }
                             {
-                                (!usuarioLogeado.usuario)?<NavLink end to="/registro" className={'nav-item nav-link'}>Registrarse</NavLink>:<></>
+                                (!usuarioLogeado.usuario) ? <NavLink end to="/registro" className={'nav-item nav-link'}>Registrarse</NavLink> : <></>
                             }
                         </Nav>
                     </Navbar.Collapse>
